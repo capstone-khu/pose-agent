@@ -249,14 +249,13 @@ class PoseFeedbackAnalyzer:
         final_score,
         severe_count,
         danger_count,
-        total_bad_contribution,
     ):
 
 
         if final_score < 45:
             return "안정"
         
-        if severe_count <= 2 and total_bad_contribution < 0.7:
+        if severe_count <= 2 and final_score < 70:
             return "주의"
 
         if final_score < 70:
@@ -265,7 +264,7 @@ class PoseFeedbackAnalyzer:
         if final_score >= 70:
             return "위험"
 
-        if danger_count <= 3 and total_bad_contribution < 0.7:
+        if danger_count <= 3 and final_score < 70:
             return "주의"
 
         return "위험"
