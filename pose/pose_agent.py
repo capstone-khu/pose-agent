@@ -192,7 +192,7 @@ class PoseAgent:
             "feedback": action_result["feedback"],
             "reward": reward_info["reward"] if reward_info else None,
             "q": q_value,
-            "meta": self._build_supervisor_meta(result, feedback),
+            "meta": self._build_supervisor_meta(feedback),
         }
 
         return {
@@ -209,9 +209,7 @@ class PoseAgent:
             },
         }
 
-    def _build_supervisor_meta(self, result, feedback):
-        if self.supervisor.is_stable_result(result):
-            return {}
+    def _build_supervisor_meta(self, feedback):
 
         top_issues = feedback.get("top_issues", [])
         if not top_issues:

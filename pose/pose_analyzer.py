@@ -161,7 +161,6 @@ class PoseFeedbackAnalyzer:
             final_score,
             severe_count,
             danger_count,
-            total_bad_contribution,
         )
 
         return {
