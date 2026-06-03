@@ -247,9 +247,10 @@ class PoseAgent:
             top_issues,
             key=lambda item: item.get("risk_percent", 0.0),
         )
+        
         return {
             "feature": top_issue.get("feature"),
-            "risk_percent": top_issue.get("risk_percent"),
+            # "risk_percent": top_issue.get("risk_percent"),
             "coaching": top_issue.get("coaching"),
         }
 
